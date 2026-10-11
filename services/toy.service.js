@@ -53,5 +53,5 @@ function getRandomToy() {
 }
 
 function getDefaultFilter() {
-  return { txt: '', maxPrice: '', minSpeed: '' }
+  return { txt: '', minPrice: '' }
 }

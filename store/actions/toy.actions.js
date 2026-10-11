@@ -12,7 +12,10 @@ import {
 import { store } from '../store.js'
 
 export function loadToys() {
+  console.log('loading toys')
   const filterBy = store.getState().toyModule.filterBy
+  console.log('filterBy:', filterBy)
+
   store.dispatch({ type: SET_IS_LOADING, isLoading: true })
 
   return toyService
