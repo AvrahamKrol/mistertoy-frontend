@@ -4,7 +4,6 @@ import { utilService } from '../../services/util.service.js'
 import { useEffectUpdate } from '../hooks/useEffectUpdate.js'
 
 export function ToyFilter({ filterBy, onSetFilter }) {
-  // console.log(filterBy)
   const [filterByToEdit, setFilterByToEdit] = useState({ ...filterBy })
   onSetFilter = useRef(utilService.debounce(onSetFilter, 300))
 
@@ -32,15 +31,62 @@ export function ToyFilter({ filterBy, onSetFilter }) {
           onChange={handleChange}
         />
 
-        <label htmlFor="minPrice">Min price:</label>
+        <label htmlFor="price">Min price:</label>
         <input
           type="number"
-          id="minPrice"
-          name="minPrice"
+          id="price"
+          name="price"
           placeholder="By min price"
-          value={filterByToEdit.minPrice || ''}
+          value={filterByToEdit.price || ''}
           onChange={handleChange}
         />
+        <label htmlFor="inStock">In Stock:</label>
+        <select
+          id="inStock"
+          name="inStock"
+          onChange={handleChange}
+          value={filterByToEdit.inStock}
+        >
+          <option value="">All</option>
+          <option value="true">In Stock</option>
+          <option value="false">Not in Stock</option>
+        </select>
+
+        <label htmlFor="labels">Labels:</label>
+        <select
+          id="labels"
+          name="labels"
+          onChange={handleChange}
+          value={filterByToEdit.labels}
+        >
+          <option value="Doll">Doll</option>
+          <option value="Baby">Baby</option>
+          <option value="Battery Powered">Battery Powered</option>\{' '}
+        </select>
+
+        <label htmlFor="sortField">Sort By:</label>
+        <select
+          id="sortField"
+          name="sortField"
+          onChange={handleChange}
+          value={filterByToEdit.sortField}
+        >
+          <option value="name">Name</option>
+          <option value="price">Price</option>
+          <option value="createdAt">Created</option>
+          <option value="inStock">In stock</option>
+        </select>
+
+        <label htmlFor="sortDir">Order:</label>
+        <select
+          id="sortDir"
+          name="sortDir"
+          onChange={handleChange}
+          value={filterByToEdit.sortDir}
+        >
+          <option value="1">Ascending</option>
+          <option value="-1">Descending</option>
+        </select>
       </form>
     </section>
   )

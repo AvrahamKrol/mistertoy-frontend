@@ -18,12 +18,11 @@ import {
 import { ToyFilter } from '../cmps/ToyFilter.jsx'
 import { ToyList } from '../cmps/ToyList.jsx'
 import { useEffectUpdate } from '../hooks/useEffectUpdate.js'
+import { UserMsg } from '../cmps/UserMsg.jsx'
 
 export function ToyIndex() {
-  console.log('Hi')
   const dispatch = useDispatch()
   const toys = useSelector((storeState) => storeState.toyModule.toys)
-  console.log('toys:', toys)
   const filterBy = useSelector((storeState) => storeState.toyModule.filterBy)
   const isLoading = useSelector((storeState) => storeState.toyModule.isLoading)
 
@@ -96,6 +95,7 @@ export function ToyIndex() {
           <div>Loading...</div>
         )}
         <hr />
+        <UserMsg />
       </main>
     </div>
   )

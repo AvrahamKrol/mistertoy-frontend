@@ -53,5 +53,12 @@ function getRandomToy() {
 }
 
 function getDefaultFilter() {
-  return { txt: '', minPrice: '' }
+  return {
+    txt: '',
+    minPrice: '',
+    inStock: '',
+    labels: '',
+    sortField: 'name',
+    sortDir: 1,
+  }
 }
