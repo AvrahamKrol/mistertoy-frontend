@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 
 import { toyService } from '../../services/toy.service.js'
 
 export function ToyDetails() {
   const [toy, setToy] = useState(null)
   const { toyId } = useParams()
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (toyId) loadToy()
